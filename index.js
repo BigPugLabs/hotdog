@@ -2,7 +2,7 @@ const express = require("express")
 const dotenv = require("dotenv").config()
 const path = require("path")
 const MongoStore = require("connect-mongo")
-const db = require("./config/db")
+const { connectDB } = require("./config/db")
 const session = require("express-session")
 const passport = require("passport")
 
@@ -13,7 +13,7 @@ const app = express()
 
 require("./config/passport")(passport)
 
-db.connectDB()
+connectDB()
 
 // templating
 app.set("view engine", "ejs")

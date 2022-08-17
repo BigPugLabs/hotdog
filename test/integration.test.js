@@ -3,7 +3,7 @@ const chaiHttp = require("chai-http")
 const assert = chai.assert
 
 const app = require("../index.js")
-const db = require("../config/db")
+const { connectDB, closeDB } = require("../config/db")
 chai.use(chaiHttp)
 
 describe("GET request", () => {
