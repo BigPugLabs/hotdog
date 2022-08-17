@@ -9,6 +9,17 @@ exports.getLogin = (req, res) => {
     res.render("login")
 }
 
+exports.getLogout = (req, res) => {
+    req.logout((err) => {
+        if (err) console.error("logout error")
+        req.session.destroy((err) => {
+            if (err) console.error("Failed to destroy session")
+            req.user = null
+            res.redirect("/")
+        })
+    })
+}
+
 exports.getSignup = (req, res) => {
     if (req.user) {
         return res.redirect("/hotdog")
@@ -53,7 +64,7 @@ exports.postSignup = (req, res, next) => {
             req.login(user, (err) => {
                 if (err) return next(err)
             })
-            res.redirect("/hotdogs")
+            res.redirect("/hotdog")
         })
     })
 }
@@ -77,8 +88,6 @@ exports.postLogin = (req, res, next) => {
         }
         req.login(user, (err) => {
             if (err) return next(err)
-            // TODO - hush logging
-            console.log(`${user.userName} logged in`)
             res.redirect(req.session.returnTo || '/hotdog')
         })
     })(req, res, next)

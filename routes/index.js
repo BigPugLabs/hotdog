@@ -16,6 +16,10 @@ router.get("/signup", authController.getSignup)
 //  @route  GET     /login
 router.get("/login", authController.getLogin)
 
+//  @desc   Logout action
+//  @route  GET     /logout
+router.get("/logout", authController.getLogout)
+
 //  @desc   Login page
 //  @route  POST     /login
 router.post("/login", authController.postLogin)
