@@ -39,6 +39,12 @@ app.use(passport.session())
 app.use("/", require("./routes/index"))
 app.use("/hotdog", require("./routes/hotdog"))
 
-module.exports = app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`)
-})
+// module.exports = app.listen(PORT, () => {
+//     console.log(`Server running on ${PORT}`)
+// })
+
+// app.listen(PORT, () => {
+//     console.log(`Server running on ${PORT}`)
+// })
+
+module.exports = app

@@ -1,36 +1,35 @@
-const chai = require("chai")
-const chaiHttp = require("chai-http")
-const assert = chai.assert
+// const chai = require("chai")
+// const chaiHttp = require("chai-http")
+// const assert = chai.assert
 
-const app = require("../index.js")
-const { connectDB, closeDB } = require("../config/db")
-chai.use(chaiHttp)
+// const app = require("../index.js")
+// const db = require("../config/db")
+// chai.use(chaiHttp)
 
-describe("GET request", () => {
+// describe("GET request", () => {
 
-    before(() => {
-        db.connectDB()
-    })
+//     before(db.connectDB)
 
-    after(() => {
-        db.closeDB()
-    })
+//     after(() => {
+//         db.closeDB()
+//         app.close()
+//     })
 
-    it("has a homepage", done => {
-        chai
-            .request(app)
-            .get("/")
-            .end((err, res) => {
-                assert.equal(res.statusCode, 200)
-                done()
-            })
+//     it("has a homepage", done => {
+//         chai
+//             .request(app)
+//             .get("/")
+//             .end((err, res) => {
+//                 assert.equal(res.statusCode, 200)
+//                 done()
+//             })
 
-    })
-    it("has a homepage async", async () => {
-        const res = await chai.request(app)
-            .get("/")
-            .send();
-        assert.equal(res.statusCode, 200)
-    })
-})
+//     })
+//     it("has a homepage async", async () => {
+//         const res = await chai.request(app)
+//             .get("/")
+//             .send();
+//         assert.equal(res.statusCode, 200)
+//     })
+// })
 

@@ -11,7 +11,7 @@ const connectDB = async () => {
 }
 
 const closeDB = async () => {
-    mongoose.disconnect()
+    await mongoose.disconnect()
 }
 
 module.exports = { connectDB, closeDB }
